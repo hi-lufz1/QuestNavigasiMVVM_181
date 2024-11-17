@@ -35,9 +35,9 @@ fun MainScreen(
     onSubmitClicked: (MutableList<String>) -> Unit
 ) {
     var nama by rememberSaveable { mutableStateOf("") }
-    var nim by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var alamat by remember { mutableStateOf("") }
+    var nim by rememberSaveable { mutableStateOf("") }
+    var email by rememberSaveable { mutableStateOf("") }
+    var alamat by rememberSaveable { mutableStateOf("") }
     var noHp by rememberSaveable { mutableStateOf("") }
     var selectedGender by rememberSaveable { mutableStateOf("") }
 
@@ -77,7 +77,7 @@ fun MainScreen(
             onValueChange = { nim = it },
             placeholder = { Text("Masukkan NIM") },
             label = { Text("NIM") },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             modifier = Modifier
                 .padding(5.dp)
                 .fillMaxWidth()
