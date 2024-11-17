@@ -1,7 +1,10 @@
 package com.example.arsitekturmvvm
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHost
@@ -21,21 +24,32 @@ enum class Halaman {
 @Composable
 fun PengelolaHalaman(
     navController: NavHostController =  rememberNavController(),
-    viewModel: MahasiswaViewModel = viewModel()
-){
-    val stateUI by viewModel.uiState.collectAsState()
+    viewModel: MahasiswaViewModel = viewModel(),
+    modifier: Modifier = Modifier
+) {
+    Scaffold { isipadding ->
+        val stateUI by viewModel.uiState.collectAsState()
 
-    NavHost(navController= navController, startDestination = Halaman.Formulir.name) {
-        composable(route = Halaman.Formulir.name){
-            val konteks = LocalContext.current
-            MainScreen (
-                listJK = DataJenisKelamin.listJK.map { id ->
-                    konteks.resources.getString(
-                        id
-                    )
-                },
-                onSubmitClicked = {}
-            )
+        NavHost(
+            modifier = modifier.padding(isipadding),
+            navController = navController, startDestination = Halaman.Formulir.name)
+        {
+            composable(route = Halaman.Formulir.name) {
+                val konteks = LocalContext.current
+                MainScreen(
+                    listJK = DataJenisKelamin.listJK.map { id ->
+                        konteks.resources.getString(
+                            id
+                        )
+                    },
+                    onSubmitClicked = {
+                        viewModel.saveDataMahasiswa(it)
+                        navController.navigate(Halaman.Detail.name)
+
+                    }
+                )
+            }
+            }
         }
     }
 }
