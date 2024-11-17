@@ -41,7 +41,7 @@ fun MainScreen(
     var noHp by rememberSaveable { mutableStateOf("") }
     var selectedGender by rememberSaveable { mutableStateOf("") }
 
-    val dataMahasiswa: MutableList<String> = mutableListOf(nama, selectedGender, alamat)
+    val dataMahasiswa: MutableList<String> = mutableListOf(nama, nim, email, noHp, selectedGender, alamat)
 
     Column(
         Modifier
