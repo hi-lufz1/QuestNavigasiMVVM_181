@@ -73,6 +73,17 @@ fun MainScreen(
         }
 
         OutlinedTextField(
+            value = nim,
+            onValueChange = { nim = it },
+            placeholder = { Text("Masukkan NIM") },
+            label = { Text("NIM") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+            modifier = Modifier
+                .padding(5.dp)
+                .fillMaxWidth()
+        )
+
+        OutlinedTextField(
             value = email,
             onValueChange = { email = it },
             placeholder = { Text("Masukkan Email") },
