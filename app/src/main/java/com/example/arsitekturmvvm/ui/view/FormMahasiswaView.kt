@@ -35,6 +35,7 @@ fun MainScreen(
     onSubmitClicked: (MutableList<String>) -> Unit
 ) {
     var nama by rememberSaveable { mutableStateOf("") }
+    var nim by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
     var noHp by rememberSaveable { mutableStateOf("") }
