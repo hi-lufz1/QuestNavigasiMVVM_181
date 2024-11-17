@@ -26,7 +26,11 @@ fun DetailMahasiswaView(
     val listDataMhs = listOf(
         Pair("Nama", uiStateMahasiswa.nama),
         Pair("Gender", uiStateMahasiswa.gender),
+        Pair("NIM", uiStateMahasiswa.nim),
+        Pair("Email", uiStateMahasiswa.email),
         Pair("Alamat", uiStateMahasiswa.alamat),
+        Pair("Nomor HP", uiStateMahasiswa.noHp)
+
     )
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         listDataMhs.forEach { item ->
