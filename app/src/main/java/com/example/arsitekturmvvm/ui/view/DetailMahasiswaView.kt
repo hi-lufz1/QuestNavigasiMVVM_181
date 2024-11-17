@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,12 +14,13 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.arsitekturmvvm.model.DataMahasiswa
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
 fun DetailMahasiswaView(
     modifier: Modifier = Modifier,
     uiStateMahasiswa: DataMahasiswa,
-    onSubmitClicked: () ->Unit
+    onBackClicked: () ->Unit
 
     ) {
     val listDataMhs = listOf(
@@ -26,9 +28,15 @@ fun DetailMahasiswaView(
         Pair("Gender", uiStateMahasiswa.gender),
         Pair("Alamat", uiStateMahasiswa.alamat),
     )
-    Column() {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
         listDataMhs.forEach { item ->
             CardSection(judulParam = item.first, isiParam = item.second)
+        }
+        Button(
+            onClick = onBackClicked ,
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
+            Text("Kembali")
         }
     }
 }

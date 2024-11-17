@@ -54,7 +54,7 @@ fun PengelolaHalaman(
             composable(route = Halaman.Detail.name){
                 DetailMahasiswaView(
                   uiStateMahasiswa =  stateUI,
-                    onSubmitClicked = {navController.popBackStack()}
+                    onBackClicked = {navController.popBackStack()}
                 )
             }
         }
